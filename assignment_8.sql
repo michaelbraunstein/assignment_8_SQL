@@ -37,8 +37,8 @@ product_sku NUMBER PRIMARY KEY,
 product_name VARCHAR2(59),
 product_price NUMBER(11) DEFAULT 0);
 
-INSERT INTO products VALUES (1, saw, 7);
-INSERT INTO products VALUES (2, miter, 9);
+INSERT INTO products (product_sku, product_name, product_price) VALUES (1, "saw", 7);
+INSERT INTO products (product_sku, product_name, product_price) VALUES (2, "miter", 9);
 --(select product_sku, product_name, product_price  from products);
 SELECT*FROM products;
 
@@ -61,10 +61,10 @@ price (product_quantity REFERENCES invoice * product_price REFERENCES product) N
 
 
 
-INSERT INTO invoice VALUES ( 1, 1, 10/18/2018, 11/25/2018 );
+INSERT INTO invoice (invoice_number, invoice_item oder_date, deliver_date)  VALUES ( 1, 1, 10/18/2018, 11/25/2018 );
 --(select invoice_number, invoice_item, order_date, delivery_date from invoice);
 
-INSERT INTO invoice_item VALUES (1, 1, 1);
+INSERT INTO invoice_item (invoice_number, product_sku, product_quantity) VALUES (1, 1, 1);
 
 desc invoice_item;
 desc invoice;
