@@ -45,23 +45,23 @@ SELECT*FROM products;
 --desc products;  
 
 CREATE TABLE invoice (
-invoice_number NUMBER PRIMARY KEY(9),
+invoice_number NUMBER PRIMARY KEY,
 invoice_item VARCHAR2(9),
 order_date DATE, 
-delivery_date DATE());
+delivery_date DATE);
 
 --desc invoice;
 
 CREATE TABLE invoice_item (
 invoice_number int(9), 
 product_sku int(9), 
-constraint t_pk PRIMARY KEY (invoice_number, product_sku) ,
+constraint t_pk PRIMARY KEY (invoice_number REFERENCES invoice, product_sku REFERENCES product),
 product_quantity INT(3),
-price (product_quantity * product_price) NUMBER(11) DEFAULT 0));
+price (product_quantity REFERENCES invoice * product_price REFERENCES product) NUMBER(11) DEFAULT(0));
 
 
 
-INSERT INTO invoice VALUES (1, 1, 10/18/2018, 11/25/2018 );
+INSERT INTO invoice VALUES ( 1, 1, 10/18/2018, 11/25/2018 );
 --(select invoice_number, invoice_item, order_date, delivery_date from invoice);
 
 INSERT INTO invoice_item VALUES (1, 1, 1);
