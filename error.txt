@@ -1,0 +1,117 @@
+
+Table CUSTOMERS dropped.
+
+
+Error starting at line : 10 in command -
+DROP TABLE invoice CASCADE CONSTRAINTS
+Error report -
+ORA-00942: table or view does not exist
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+Table PRODUCTS dropped.
+
+
+Error starting at line : 12 in command -
+DROP TABLE invoice_item CASCADE CONSTRAINTS
+Error report -
+ORA-00942: table or view does not exist
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+Table CUSTOMERS created.
+
+
+1 row inserted.
+
+
+Table PRODUCTS created.
+
+
+Error starting at line : 40 in command -
+INSERT INTO products VALUES (1, saw, 7)
+Error at Command Line : 40 Column : 33
+Error report -
+SQL Error: ORA-00984: column not allowed here
+00984. 00000 -  "column not allowed here"
+*Cause:    
+*Action:
+
+Error starting at line : 41 in command -
+INSERT INTO products VALUES (2, miter, 9)
+Error at Command Line : 41 Column : 33
+Error report -
+SQL Error: ORA-00984: column not allowed here
+00984. 00000 -  "column not allowed here"
+*Cause:    
+*Action:
+no rows selected
+
+Error starting at line : 47 in command -
+CREATE TABLE invoice (
+invoice_number NUMBER PRIMARY KEY(9),
+invoice_item VARCHAR2(9),
+order_date DATE, 
+delivery_date DATE())
+Error report -
+ORA-00907: missing right parenthesis
+00907. 00000 -  "missing right parenthesis"
+*Cause:    
+*Action:
+
+Error starting at line : 55 in command -
+CREATE TABLE invoice_item (
+invoice_number int(9), 
+product_sku int(9), 
+constraint t_pk PRIMARY KEY (invoice_number, product_sku) ,
+product_quantity INT(3),
+price (product_quantity * product_price) NUMBER(11) DEFAULT 0))
+Error report -
+ORA-00907: missing right parenthesis
+00907. 00000 -  "missing right parenthesis"
+*Cause:    
+*Action:
+
+Error starting at line : 64 in command -
+INSERT INTO invoice VALUES (1, 1, 10/18/2018, 11/25/2018 )
+Error at Command Line : 64 Column : 13
+Error report -
+SQL Error: ORA-00942: table or view does not exist
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+Error starting at line : 67 in command -
+INSERT INTO invoice_item VALUES (1, 1, 1)
+Error at Command Line : 67 Column : 13
+Error report -
+SQL Error: ORA-00942: table or view does not exist
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+ERROR:
+ORA-04043: object invoice_item does not exist
+
+ERROR:
+ORA-04043: object invoice does not exist
+
+Error starting at line : 72 in command -
+SELECT*FROM invoice
+Error at Command Line : 72 Column : 13
+Error report -
+SQL Error: ORA-00942: table or view does not exist
+00942. 00000 -  "table or view does not exist"
+*Cause:    
+*Action:
+
+Error starting at line : 73 in command -
+SELECT*FROM invoice-item
+Error at Command Line : 73 Column : 20
+Error report -
+SQL Error: ORA-00933: SQL command not properly ended
+00933. 00000 -  "SQL command not properly ended"
+*Cause:    
+*Action:
